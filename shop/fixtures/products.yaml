@@ -1,15 +1,39 @@
 - model: shop.product
   pk: 1
   fields:
-    name: Стол
-    price: 2000
+    name: "Золотое колье"
+    description: "Роскошное золотое колье с бриллиантами"
+    price: 12000.00
+    quantity: 5
+
 - model: shop.product
   pk: 2
   fields:
-    name: Стул
-    price: 1000
+    name: "Сапфировые серьги"
+    description: "Элегантные серьги с сапфирами"
+    price: 8000.00
+    quantity: 3
+
 - model: shop.product
   pk: 3
   fields:
-    name: Табурет
-    price: 500
+    name: "Часы Rolex"
+    description: "Швейцарские часы Rolex"
+    price: 25000.00
+    quantity: 2
+
+- model: shop.product
+  pk: 4
+  fields:
+    name: "Кожаная сумка Hermes"
+    description: "Эксклюзивная кожаная сумка"
+    price: 18000.00
+    quantity: 4
+
+- model: shop.product
+  pk: 5
+  fields:
+    name: "Бриллиантовое кольцо"
+    description: "Изысканное кольцо с бриллиантом"
+    price: 30000.00
+    quantity: 1

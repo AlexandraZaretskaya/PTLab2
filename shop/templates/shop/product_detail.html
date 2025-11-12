@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>{{ product.name }}</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f9f8f6;
+            color: #333;
+            padding: 40px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background-color: #fffaf7;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #222;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        .price {
+            font-size: 22px;
+            color: #b8916a;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #b8916a;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #8c6239;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ product.name }}</h1>
+        <p>{{ product.description }}</p>
+        <p class="price">{{ product.price }} ₽</p>
+        <a href="/">← Вернуться к списку</a>
+    </div>
+</body>
+</html>

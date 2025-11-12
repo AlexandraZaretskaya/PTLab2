@@ -1,21 +1,19 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.views.generic.edit import CreateView
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from django.core.exceptions import ValidationError
+from .models import Product
 
-from .models import Product, Purchase
-
-# Create your views here.
+# Главная страница: список товаров
 def index(request):
-    products = Product.objects.all()
-    context = {'products': products}
-    return render(request, 'shop/index.html', context)
+    products = Product.objects.all()  # получаем все товары из базы
+    return render(request, 'shop/index.html', {'products': products})
 
-
-class PurchaseCreate(CreateView):
-    model = Purchase
-    fields = ['product', 'person', 'address']
-
-    def form_valid(self, form):
-        self.object = form.save()
-        return HttpResponse(f'Спасибо за покупку, {self.object.person}!')
-
+# Функция покупки товара
+def buy_product(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    try:
+        product.purchase()  # уменьшаем количество товара
+        messages.success(request, f'Вы купили {product.name}!')
+    except ValidationError:
+        messages.error(request, 'Товара недостаточно на складе')  # сообщение об ошибке
+    return redirect('shop:index')
